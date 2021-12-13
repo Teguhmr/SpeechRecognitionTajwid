@@ -1,5 +1,6 @@
-package com.dicoding.speechrecognitiontajwid
+package com.ai.speechrecognitiontajwid
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.os.Looper
 import android.view.Window
 import android.view.WindowManager
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
