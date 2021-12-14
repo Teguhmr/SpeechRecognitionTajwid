@@ -25,7 +25,7 @@ jobs:
             - ~/.android/build-cache
             - ~/.android/cache
       - telegram/notify:
-          message: "run ./gradlew build"
+          message: "Run Build"
       - run:
           name: Run Build
           command: ./gradlew build
@@ -33,7 +33,7 @@ jobs:
           path: app/build/reports
           destination: reports
       - telegram/notify:
-          message: "run ./gradlew lint test"
+          message: "Run Test"
       - run:
           name: Run Tests
           command: ./gradlew lint test
@@ -43,7 +43,7 @@ jobs:
           path: app/build/outputs/apk/debug/
           destination: artifact-file
       - telegram/notify:
-          message: "All test passed"
+          message: "All test done"
       - telegram/notify:
           message: "https://circleci.com/gh/Teguhmr/SpeechRecognitionTajwid.svg"
           parse_mode: HTML
