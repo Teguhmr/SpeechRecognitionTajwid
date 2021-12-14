@@ -9,6 +9,12 @@ jobs:
   build:
     executor: android/android
     steps:
+      - telegram-orb/notification:
+          groupid: '-663137438'
+          message: 'Message from Circle CI'
+      - telegram-orb/status:
+          fail_only: false
+          only_for_branches: master
       - telegram/notify:
           message: "Project SpeechRecognitionTajwid::Pipeline are running"
       - checkout
@@ -48,9 +54,3 @@ jobs:
       - telegram/notify:
           message: "https://circleci.com/gh/Teguhmr/SpeechRecognitionTajwid.svg"
           parse_mode: HTML
-      - telegram-orb/notification:
-          groupid: '-663137438'
-          message: 'Message from Circle CI'
-      - telegram-orb/status:
-          fail_only: false
-          only_for_branches: master
