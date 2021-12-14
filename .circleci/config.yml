@@ -39,5 +39,5 @@ jobs:
           destination: artifact-file
       - telegram/notify:
           message: "Notification from CircleCI!
-          https://circleci.com/gh/Teguhmr/SpeechRecognitionTajwid.svg?style=svg"
+          [![Teguhmr](https://circleci.com/gh/Teguhmr/MadeSubmission.svg?style=svg)](https://circleci.com/gh/Teguhmr/MadeSubmission)"
           parse_mode : Markdown
