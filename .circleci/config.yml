@@ -39,3 +39,5 @@ jobs:
           destination: artifact-file
       - telegram/notify:
           message: "Notification from CircleCI!"
+      - telegram/sendphoto:
+          image-url: 'https://circleci.com/gh/Teguhmr/SpeechRecognitionTajwid.svg?style=svg'
