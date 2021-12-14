@@ -1,0 +1,49 @@
+version: 2.1
+ 
+orbs:
+  android: circleci/android@1.0.3
+  telegram: woltsu/telegram@0.0.9
+
+jobs:
+  build:
+    executor: android/android
+    steps:
+      - telegram/notify:
+          message: "Project SpeechRecognitionTajwid::Pipeline are running"
+      - checkout
+      - restore_cache:
+          key: android-orb-v1-
+      - run:
+          name: Chmod permissions
+          command: sudo chmod +x ./gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          key: 'android-orb-v1-{{ epoch }}'
+          paths:
+            - ~/.android/build-cache
+            - ~/.android/cache
+      - telegram/notify:
+          message: "Run Build"
+      - run:
+          name: Run Build
+          command: ./gradlew build
+      - store_artifacts: 
+          path: app/build/reports
+          destination: reports
+      - telegram/notify:
+          message: "Run Test"
+      - run:
+          name: Run Tests
+          command: ./gradlew lint test
+      - store_test_results:
+          path: app/build/test-results
+      - store_artifacts:  
+          path: app/build/outputs/apk/debug/
+          destination: artifact-file
+      - telegram/notify:
+          message: "All test done"
+      - telegram/notify:
+          message: "https://circleci.com/gh/Teguhmr/SpeechRecognitionTajwid.svg"
+          parse_mode: HTML
