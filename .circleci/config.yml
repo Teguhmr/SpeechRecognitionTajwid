@@ -9,10 +9,10 @@ jobs:
   build:
     executor: android/android
     steps:
-      - telegram-orb/notification:
-          message: 'Notification from Circle CI'
       - telegram/notify:
           message: "Project SpeechRecognitionTajwid::Pipeline are running"
+      - telegram-orb/notification:
+          message: 'Notification from Circle CI'
       - checkout
       - restore_cache:
           key: android-orb-v1-
