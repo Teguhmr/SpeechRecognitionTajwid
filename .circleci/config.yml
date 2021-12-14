@@ -10,6 +10,10 @@ jobs:
     executor: android/android
     steps:
       - checkout
+      - telegram/notify:
+          message: "Notification from CircleCI!"
+      - telegram/sendsticker:
+          telegram-sticker: "https://circleci.com/gh/Teguhmr/MadeSubmission.webp"
       - restore_cache:
           key: android-orb-v1-
       - run:
@@ -37,7 +41,3 @@ jobs:
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
-      - telegram/notify:
-          message: "Notification from CircleCI!"
-      - telegram/sendgif:
-          gif-url: "https://circleci.com/gh/Teguhmr/MadeSubmission.svg?style=svg"
