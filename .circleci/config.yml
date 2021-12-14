@@ -38,5 +38,5 @@ jobs:
           path: app/build/outputs/apk/debug/
           destination: artifact-file
       - telegram/notify:
-          message: "Notification from CircleCI! [![Teguhmr](https://circleci.com/gh/Teguhmr/MadeSubmission.svg?style=svg)](https://circleci.com/gh/Teguhmr/MadeSubmission)"
-          parse_mode : Markdown
+          message: "Notification from CircleCI! https://circleci.com/gh/Teguhmr/MadeSubmission.svg?style=svg"
+          parse_mode : HTML
